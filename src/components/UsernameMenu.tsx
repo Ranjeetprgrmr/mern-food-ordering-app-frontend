@@ -15,7 +15,12 @@ const UsernameMenu = () => {
 
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-            <DropdownMenuItem>
+            <DropdownMenuItem className="flex flex-col gap-2">
+                <Link to='/manage-restaurant'
+                className="font-bold hover:text-orange-500"
+                >
+                Manage Restaurant
+                </Link>
                 <Link to='/user-profile'
                 className="font-bold hover:text-orange-500"
                 >
