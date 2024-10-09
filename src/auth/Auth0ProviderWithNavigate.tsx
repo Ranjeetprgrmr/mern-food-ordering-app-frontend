@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 type Props = {
   children : React.ReactNode;
+ 
 }
-
 
 const Auth0ProviderWithNavigate = ({children}: Props) =>{
   const navigate = useNavigate();
@@ -20,9 +20,9 @@ const Auth0ProviderWithNavigate = ({children}: Props) =>{
         throw new Error('unable to initialise auth');
     }
 
-    const onRedirectCallback = (_appState?: AppState) => {
+    const onRedirectCallback = (appState?: AppState) => {
         // console.log('User', user);
-        navigate("/auth-callback");  
+        navigate(appState?.returnTo ||"/auth-callback");  
     }
 
   return (
@@ -33,10 +33,9 @@ const Auth0ProviderWithNavigate = ({children}: Props) =>{
         redirect_uri: redirectUri, 
         audience,
       }}
-      onRedirectCallback={onRedirectCallback}
-      useRefreshTokens={true}
-      cacheLocation="localstorage"
-      
+       onRedirectCallback={onRedirectCallback}
+       useRefreshTokens={true}
+       cacheLocation="localstorage"  
       >
         {children}
       </Auth0Provider>
