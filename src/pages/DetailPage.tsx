@@ -72,11 +72,7 @@ const DetailPage = () => {
         //    price: 12,
         //    quantity: 1,
         //   }]
-
-
-
       });
-
     };
 
     const removeFromCart = (cartItem: CartItem) => {
